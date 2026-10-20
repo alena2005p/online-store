@@ -3,7 +3,9 @@ ALTER SESSION SET NLS_DATE_FORMAT = 'YYYY-MM-DD';
 -- 1. Клиенты
 CREATE TABLE Clients_3NF (
     Client_ID NUMBER PRIMARY KEY,
-    Client_Name VARCHAR2(100),
+    client_last_name VARCHAR2(50) NOT NULL,
+    client_first_name VARCHAR2(50) NOT NULL,
+    client_middle_name VARCHAR2(50),
     Client_Phone VARCHAR2(20),
     Client_Email VARCHAR2(100)
 );
@@ -11,7 +13,9 @@ CREATE TABLE Clients_3NF (
 -- 2. Работники
 CREATE TABLE Workers_3NF (
     Worker_ID NUMBER PRIMARY KEY,
-    Worker_Name VARCHAR2(100),
+    worker_last_name VARCHAR2(50) NOT NULL,
+    worker_first_name VARCHAR2(50) NOT NULL,
+    worker_middle_name VARCHAR2(50),
     Worker_Position VARCHAR2(50),
     Worker_Phone VARCHAR2(20)
 );
@@ -43,10 +47,11 @@ CREATE TABLE Orders_3NF (
 
 -- 6. Состав заказа
 CREATE TABLE Order_Items_3NF (
+  order_line_id NUMBER PRIMARY KEY,
     Order_ID NUMBER,
     Product_ID NUMBER,
     Quantity NUMBER,
-    PRIMARY KEY (Order_ID, Product_ID),
+
     FOREIGN KEY (Order_ID) REFERENCES Orders_3NF(Order_ID),
     FOREIGN KEY (Product_ID) REFERENCES Products_3NF(Product_ID)
 );
