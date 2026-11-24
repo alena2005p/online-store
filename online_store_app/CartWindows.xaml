@@ -1,0 +1,18 @@
+﻿<Window x:Class="OnlineStore.CartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Корзина" Height="300" Width="400">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ListBox x:Name="CartList" Grid.Row="0" Margin="5">
+            <ListBoxItem>iPhone 15 - 1 шт.</ListBoxItem>
+            <ListBoxItem>Чехол для iPhone 15 - 1 шт.</ListBoxItem>
+        </ListBox>
+
+        <Button Content="Оформить заказ" Grid.Row="1" Margin="5" Background="Orange" Click="BtnCheckout_Click"/>
+    </Grid>
+</Window>
